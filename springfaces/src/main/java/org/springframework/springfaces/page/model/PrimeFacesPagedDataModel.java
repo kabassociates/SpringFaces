@@ -15,6 +15,9 @@
  */
 package org.springframework.springfaces.page.model;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -42,7 +45,49 @@ public class PrimeFacesPagedDataModel<E> extends LazyDataModel<E> implements Pag
 		this.delegate = delegate;
 	}
 
-	@Override
+  @Override
+  public Object getRowKey(E object) {
+    try {
+      Method idMethod = object.getClass().getMethod("getId");
+      return idMethod.invoke(object);
+    } catch (IllegalAccessException e) {
+      e.printStackTrace();
+      return super.getRowKey(object);
+    } catch (NoSuchMethodException e) {
+      e.printStackTrace();
+      return super.getRowKey(object);
+    } catch (InvocationTargetException e) {
+      e.printStackTrace();
+      return super.getRowKey(object);
+    }
+  }
+
+  @Override
+  public E getRowData(String rowKey) {
+    try {
+      for(int i = 0; i < getRowCount(); i++) {
+        setRowIndex(i);
+        E object = getRowData();
+        Method idMethod = object.getClass().getMethod("getId");
+        Object id = idMethod.invoke(object);
+        if(rowKey.equals(id.toString())) {
+          return object;
+        }
+      }
+    } catch (NoSuchMethodException e) {
+      e.printStackTrace();
+      return super.getRowData(rowKey);
+    } catch (InvocationTargetException e) {
+      e.printStackTrace();
+      return super.getRowData(rowKey);
+    } catch (IllegalAccessException e) {
+      e.printStackTrace();
+      return super.getRowData(rowKey);
+    }
+    return super.getRowData(rowKey);
+  }
+
+  @Override
 	public boolean isRowAvailable() {
 		return this.delegate.isRowAvailable();
 	}
