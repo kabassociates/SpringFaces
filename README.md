@@ -1,12 +1,11 @@
-<<<<<<< HEAD
+
 SpringFaces
 ===========
 
 An attempt to integrate Spring with JSF, based on philwebb/springfaces
-=======
-Spring JSF Integration (for Spring 3 & JSF 2)
-http://coderphil.wordpress.com/
 
+Spring JSF Integration (for Spring 3 & JSF 2)
+=============================================
 
 Copyright 2009-2011 the original author or authors.
 
@@ -43,5 +42,3 @@ To run the travel advisor sample application:
   mvn cargo:run
   http://localhost:8080/springfaces-traveladvisor/spring/advisor/cities/search
   
-
->>>>>>> 74437af40f0ecf330a4ddb4aad346fc4238c367e
