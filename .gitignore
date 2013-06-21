@@ -1,6 +1,17 @@
+<<<<<<< HEAD
 *.class
 
 # Package Files #
 *.jar
 *.war
 *.ear
+=======
+target/
+.settings/
+.project
+.classpath
+.springBeans
+.metadataspringfaces-samples/springfaces-traveladvisor/bin
+springfaces-samples/springfaces-traveladvisor/bin
+springfaces-samples/springfaces-traveladvisor/.metadata
+>>>>>>> 74437af40f0ecf330a4ddb4aad346fc4238c367e

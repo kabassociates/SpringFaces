@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:s="http://springframework.org/tags/springfaces"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/WEB-INF/layouts/standard.xhtml">
+
+		<ui:param name="title" value="Search"/>
+
+		<p>
+			<h:outputText value="Enter the name of a City to find travel reviews..."/>
+		</p>
+
+		<p:autoComplete 
+				id="query" 
+				value="#{citySearchCriteria.name}" 
+				completeMethod="#{cityAutoComplete.suggest}"
+				var="city" 
+				itemValue="#{city.name}, #{city.country}" 
+				itemLabel="#{city.name}, #{city.country}">
+			<p:column>
+	           	<p:graphicImage 
+	           			value="/resources/img/flags/24/#{city.country}.png"
+	           			width="24" 
+	           			height="24"/>
+			</p:column>
+			<p:column>
+				<h:outputText value="#{city.name}, #{city.country}"/>
+			</p:column>
+		</p:autoComplete>
+
+		<p:commandButton id="search" value="Search" action="search" update="form"/>
+
+	</ui:composition>
+
+</html>

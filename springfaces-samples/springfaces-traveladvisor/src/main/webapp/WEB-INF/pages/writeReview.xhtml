@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:s="http://springframework.org/tags/springfaces"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/WEB-INF/layouts/standard.xhtml">
+		<ui:param name="title" value="Write Review - #{hotel.name} in #{city}"/>
+		
+		<h1>
+			<h:outputText value="Review '#{hotel.name}' in #{city}"/>
+		</h1>
+
+		<s:decorateAll template="/WEB-INF/layouts/inputForm.xhtml">
+			<p:inputText label="Title" value="#{review.title}" required="true"/>
+			<p:rating label="Rating" value="#{reviewRating.value}" stars="4"/>
+			<p:selectOneMenu label="Trip Type" value="#{review.tripType}" effect="fade">
+				<s:selectItems/>
+			</p:selectOneMenu>
+			<p:calendar label="Check-In Date" value="#{review.checkInDate}"/>
+			<p:inputTextarea label="Details" value="#{review.details}" autoResize="false"/>
+		</s:decorateAll>
+		
+		<p:commandButton value="Submit" action="submitReview" update="form"/>
+	</ui:composition>
+
+</html>
+
+
+

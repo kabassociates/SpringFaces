@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:util="http://java.sun.com/jsf/composite/components/util"
+	xmlns:s="http://springframework.org/tags/springfaces">
+
+	<h:head>
+		<title>Templates - Decorate All</title>
+	</h:head>
+
+	<h:body>
+		<h:form id="form">
+
+			<s:decorateAll template="decoratetemplate.xhtml">
+
+				<ui:define name="globaldefine">
+					<h:outputText value="globaldefinevalue"/>
+				</ui:define>
+				<ui:param name="globalparam" value="globalparamvalue"/>
+
+				<h:outputText value="insert1"/>
+				<ui:param name="localparam" value="localparamvalue1" />
+				<ui:define name="localdefine">
+					<h:outputText value="localdefinevalue1"/>
+				</ui:define>
+
+				<h:outputText value="insert1"/>
+				<ui:param name="localparam" value="localparamvalue2" />
+				<ui:define name="localdefine">
+					<h:outputText value="localdefinevalue2"/>
+				</ui:define>
+			</s:decorateAll>
+		</h:form>
+	</h:body>
+</ui:composition>
+
+
+
