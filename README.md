@@ -1,11 +1,10 @@
-
 SpringFaces
 ===========
 
 An attempt to integrate Spring with JSF, based on philwebb/springfaces
 
-Spring JSF Integration (for Spring 3 & JSF 2)
-=============================================
+Spring 3 & JSF 2 Integration
+============================
 
 Copyright 2009-2011 the original author or authors.
 
@@ -19,11 +18,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
-
-
-INSTRUCTIONS
-============
 
 Building
 --------
